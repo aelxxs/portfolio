@@ -9,7 +9,7 @@ body:
           options:
               - server
               - client
-        multiple: true
+          multiple: true
       validations:
           required: true
 
