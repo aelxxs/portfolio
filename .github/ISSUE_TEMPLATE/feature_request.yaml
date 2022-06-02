@@ -5,22 +5,22 @@ body:
     - type: dropdown
       id: scope
       attributes:
-      label: What is the scope of the feature?
-      options:
-          - server
-          - client
+          label: What is the scope of the feature?
+          options:
+              - server
+              - client
       multiple: true
 
     - type: textarea
       id: description
       attributes:
-      label: Description
+          label: Description
       validations:
-      required: true
+          required: true
 
     - type: textarea
       id: proposed-solution
       attributes:
-      label: Proposed solution
+          label: Proposed solution
       validations:
-      required: true
+          required: true

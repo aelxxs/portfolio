@@ -5,42 +5,44 @@ body:
     - type: dropdown
       id: scope
       attributes:
-      label: What is the scope of the bug?
-      options:
-          - server
-          - client
+          label: What is the scope of the bug?
+          options:
+              - server
+              - client
       multiple: true
+      validations:
+          required: true
 
     - type: textarea
       id: description
       attributes:
-      label: Description
+          label: Description
       validations:
-      required: true
+          required: true
 
     - type: input
       id: reproduction
       attributes:
-      label: Please provide a link to a minimal reproduction of the bug
+          label: Please provide a link to a minimal reproduction of the bug
 
     - type: textarea
       id: exception-or-error
       attributes:
-      label: Please provide the exception or error you saw
+          label: Please provide the exception or error you saw
       render: true
 
     - type: textarea
       id: environment
       attributes:
-      label: Please provide some context about your development environment.
-      render: true
-      placeholder: |
-          Node: 14.17.0
-          Python: 3.9
-          Package Manager: yarn 1.22.10
-          OS: Windows 11
+          label: Please provide some context about your development environment.
+          render: true
+          placeholder: |
+              Node: 14.17.0
+              Python: 3.9
+              Package Manager: yarn 1.22.10
+              OS: Windows 11
 
     - type: textarea
       id: other
       attributes:
-      label: Anything else?
+          label: Anything else?
