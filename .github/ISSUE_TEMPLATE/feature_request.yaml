@@ -1,0 +1,26 @@
+name: 'Feature Request'
+description: Suggest a feature.
+
+body:
+    - type: dropdown
+      id: scope
+      attributes:
+      label: What is the scope of the feature?
+      options:
+          - server
+          - client
+      multiple: true
+
+    - type: textarea
+      id: description
+      attributes:
+      label: Description
+      validations:
+      required: true
+
+    - type: textarea
+      id: proposed-solution
+      attributes:
+      label: Proposed solution
+      validations:
+      required: true
