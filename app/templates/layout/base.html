@@ -7,8 +7,10 @@
 		<title>{{title}}</title>
 
 		<link rel="stylesheet" href="./static/styles/resets.css" />
+		<link rel="stylesheet" href="./static/styles/global.css" />
 	</head>
 	<body id="app">
+		{% include "./blocks/header.html" %}
 		<main>{% block body %} {% endblock %}</main>
 	</body>
 </html>
