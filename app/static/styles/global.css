@@ -57,7 +57,7 @@ body {
 .info-link {
 	color: hsl(0, 0%, 0%);
 	text-decoration: underline;
-	text-decoration-color: red;
+	text-decoration-color: hsl(357, 62%, 59%);;
 	font-weight: 500;
 }
 
