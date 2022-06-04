@@ -10,7 +10,8 @@ load_dotenv()
 app = Flask(__name__)
 
 # ! This is temp.
-user = {"name": "John Doe", "icon": "https://umai.pw/2no_Vq"}
+user = {"name":"John Doe", "icon":"https://umai.pw/2no_Vq", "github":"https://github.com",
+"linkedin":"https://linkedin.com", "email":"https://gmail.com", "resume":"https://www.google.com"}
 
 
 @app.route("/")
