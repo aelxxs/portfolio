@@ -10,4 +10,9 @@
 		<span>•</span>
 		<a class="nav-link" href="#contact">Contact</a>
 	</nav>
+	<div class="header-flags">
+		{% for flag in user.flags %}
+		<img src="{{flag.icon}}" alt="Flag of {{flag.name}}" />
+		{% endfor %}
+	</div>
 </header>

@@ -16,6 +16,10 @@ user = {
     "linkedin": "https://linkedin.com",
     "email": "https://gmail.com",
     "resume": "https://www.google.com",
+    "flags": [
+        {"name": "US", "icon": "https://i.umai.pw/ZkGRdK.png"},
+        {"name": "ES", "icon": "https://i.umai.pw/a6Jc-N.png"},
+    ],
 }
 
 
