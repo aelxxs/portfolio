@@ -8,6 +8,16 @@ body {
 	padding: 2em;
 }
 
+main {
+	max-width: 720px;
+	margin: 2em auto;
+}
+
+p {
+	margin-top: 1.25em;
+	margin-bottom: 2em;
+}
+
 /** HEADER **/
 .header {
 	display: flex;
