@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>404: Unknown Page</title>
+	</head>
+	<body onclick='window.location.href="/"'>
+		<span>404</span>
+		<a href="">click anywhere to go home</a>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		cursor: pointer;
+		margin: 0;
+		height: 100vh;
+		user-select: none;
+	}
+
+	body {
+		display: flex;
+		flex-direction: column;
+		font-family: sans-serif;
+		align-items: center;
+		justify-content: center;
+	}
+
+	span {
+		font-size: 15em;
+		font-weight: bolder;
+	}
+
+	a {
+		text-decoration: none;
+		font-size: 2em;
+		font-family: monospace;
+		color: black;
+		margin-bottom: 3em;
+	}
+</style>
