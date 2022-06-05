@@ -8,6 +8,7 @@
 	</div>
 	<img class="header-img" src="{{user.icon}}" alt="" />
 	<h1 class="header-title">{{user.name}}</h1>
+	{% if request.endpoint == "index" %}
 	<nav class="header-nav">
 		<a class="nav-link" href="#projects">Projects</a>
 		<span>•</span>
@@ -17,6 +18,11 @@
 		<span>•</span>
 		<a class="nav-link" href="#contact">Contact</a>
 	</nav>
+	{% else %}
+	<nav class="header-nav">
+		<a class="nav-link" href="/">Home</a>
+	</nav>
+	{% endif %}
 	<div class="header-flags">
 		{% for flag in user.flags %}
 		<img src="{{flag.icon}}" alt="Flag of {{flag.name}}" />
