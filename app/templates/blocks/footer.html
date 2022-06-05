@@ -1,10 +1,9 @@
 <footer class="footer">
 	<div class="footer-line"></div>
 	<nav class="footer-nav">
-		<a class="nav-link" href="{{user.github}}">GitHub</a>
-		<a class="nav-link" href="{{user.linkedin}}">LinkedIn</a>
-		<a class="nav-link" href="{{user.email}}">Email</a>
-		<a class="nav-link" href="{{user.resume}}">Resume</a>
+		{% for social in user.socials %}
+		<a class="nav-link" href="{{social.link}}">{{social.name}}</a>
+		{% endfor %}
 	</nav>
 	<a class="footer-return" href="#top">Back to Top</a>
 </footer>
