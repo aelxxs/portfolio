@@ -24,7 +24,7 @@ user = {
         {
             "name": "Email",
             "icon": "https://i.umai.pw/drb5mM.svg",
-            "link": "https://github.com",
+            "link": "mailto:email@email.com",
         },
         {
             "name": "LinkedIn",
@@ -34,7 +34,7 @@ user = {
         {
             "name": "GitHub",
             "icon": "https://i.umai.pw/xhdarP.svg",
-            "link": "mailto:email@email.com",
+            "link": "https://github.com",
         },
         {
             "name": "Resume",
