@@ -1,4 +1,11 @@
 <header class="header">
+	<div class="header-socials">
+		{% for social in user.socials %}
+		<a href="{{social.link}}" title="{{social.name}}" target="_blank">
+			<img src="{{social.icon}}" alt="{{social.name}}" />
+		</a>
+		{% endfor %}
+	</div>
 	<img class="header-img" src="{{user.icon}}" alt="" />
 	<h1 class="header-title">{{user.name}}</h1>
 	<nav class="header-nav">

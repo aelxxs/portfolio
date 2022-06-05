@@ -20,6 +20,28 @@ user = {
         {"name": "US", "icon": "https://i.umai.pw/ZkGRdK.png"},
         {"name": "ES", "icon": "https://i.umai.pw/a6Jc-N.png"},
     ],
+    "socials": [
+        {
+            "name": "Email",
+            "icon": "https://i.umai.pw/drb5mM.svg",
+            "link": "https://github.com",
+        },
+        {
+            "name": "LinkedIn",
+            "icon": "https://i.umai.pw/S8Fs_J.svg",
+            "link": "https://linkedin.com",
+        },
+        {
+            "name": "GitHub",
+            "icon": "https://i.umai.pw/xhdarP.svg",
+            "link": "mailto:email@email.com",
+        },
+        {
+            "name": "Resume",
+            "icon": "https://i.umai.pw/jLZRy7.svg",
+            "link": "https://link-to-resume.com",
+        },
+    ],
 }
 
 

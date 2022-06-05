@@ -78,6 +78,25 @@ main > img {
 	margin-left: 1em;
 }
 
+.header-socials {
+	position: fixed;
+	left: 2em;
+	display: flex;
+	flex-direction: column;
+}
+
+.header-socials > a > img {
+	width: 1.5em;
+	height: auto;
+	margin-bottom: 2em;
+}
+
+@media screen and (max-width: 960px) {
+	.header-socials {
+		display: none;
+	}
+}
+
 /** FOOTER **/
 .footer {
 	display: flex;
