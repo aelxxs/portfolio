@@ -4,6 +4,8 @@ This is the flask app
 from flask import Flask, render_template
 from dotenv import load_dotenv
 import requests
+import markdown
+import bleach
 
 load_dotenv()
 
@@ -55,6 +57,43 @@ def index():
     user["projects"] = projects["data"]
 
     return render_template("/pages/home.html", user=user)
+
+
+@app.route("/project/<name>")
+def project(name):
+    """
+    Renders a project page if available.
+    """
+
+    # ? We would actually look for the project page in a database.
+    # ? For now let's serve this template
+    file_path = "./app/static/project-template.md"
+
+    with open(file_path, "r", encoding="utf-8") as file:
+        text = file.read()
+
+    html = bleach.clean(
+        markdown.markdown(text),
+        tags=[
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "p",
+            "em",
+            "strong",
+            "ul",
+            "ol",
+            "li",
+            "code",
+            "img",
+        ],
+        attributes={"img": ["src"]},
+    )
+
+    return render_template("/pages/project.html", user=user, content=html)
 
 
 @app.errorhandler(404)
