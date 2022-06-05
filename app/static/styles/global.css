@@ -77,7 +77,8 @@ main > img {
 }
 
 .footer-nav {
-	word-spacing: 65px;
+	display: flex;
+	flex-direction: row;
 }
 
 .footer-nav > .nav-link {
@@ -85,6 +86,7 @@ main > img {
 	text-decoration: underline;
 	text-decoration-color: hsl(357, 62%, 59%);
 	font-weight: 500;
+	margin: 2.5em 2em;
 }
 
 .footer-nav > .info-link:hover {
@@ -93,6 +95,7 @@ main > img {
 }
 
 .footer-return {
+	margin-top: 2.5em;
 	color: black;
 	text-decoration: none;
 }
