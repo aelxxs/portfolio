@@ -1,0 +1,13 @@
+{% macro project(data) %}
+<a class="project" href="/project/{{data.name}}">
+	<span class="project-name">{{data.name}}</span>
+	<p>{{data.description}}</p>
+	<div class="project-about">
+		<span
+			class="project-dot"
+			style="background-color: {{data.primaryLanguage.color}}"
+		></span>
+		<span class="project-lang">{{data.primaryLanguage.name}}</span>
+	</div>
+</a>
+{% endmacro %}
