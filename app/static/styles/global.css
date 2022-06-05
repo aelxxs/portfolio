@@ -124,8 +124,8 @@ main > img {
 }
 
 .footer-nav > .info-link:hover {
-	text-decoration: underline;
 	text-decoration-color: black;
+	text-decoration: underline;
 }
 
 .footer-return {
@@ -187,4 +187,49 @@ main > img {
 	font-family: monospace;
 	margin-left: 0.5em;
 	font-size: 0.9em;
+}
+
+/** Hobbies **/
+.hobby-details {
+	display: flex;
+	flex-direction: row;
+	margin-top: 2em;
+	margin-bottom: 3em;
+}
+
+.left-summary {
+	margin-right: 3em;
+}
+
+.left-image {
+	border-radius: 50%;
+	width: 2.2em;
+	height: 2.2em;
+	margin-bottom: 1em;
+	margin-left: 4.5em;
+}
+
+.middle-summary {
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+}
+
+.middle-image {
+	border-radius: 50%;
+	width: 2.2em;
+	height: 2.2em;
+	margin-bottom: 1em;
+	margin-left: 6em;
+}
+
+.right-summary {
+	margin-left: 3em;
+}
+
+.right-image {
+	border-radius: 50%;
+	width: 2.2em;
+	height: 2.2em;
+	margin-bottom: 1em;
+	margin-left: 7em;
 }
