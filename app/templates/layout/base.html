@@ -6,8 +6,14 @@
 		<!-- TODO: Add more meta tags & head macro (?) -->
 		<title>{{title}}</title>
 
-		<link rel="stylesheet" href="./static/styles/resets.css" />
-		<link rel="stylesheet" href="./static/styles/global.css" />
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/styles/resets.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/styles/global.css')}}"
+		/>
 	</head>
 	<body id="app">
 		{% include "./blocks/header.html" %}
