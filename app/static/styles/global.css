@@ -4,6 +4,10 @@
 	font-family: "Poppins", sans-serif;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	padding: 2em;
 }
@@ -17,6 +21,8 @@ main {
 main > p {
 	margin-top: 1.25em;
 	margin-bottom: 2em;
+	letter-spacing: 0.01rem;
+	line-height: 2rem;
 }
 
 main > img {
@@ -141,7 +147,7 @@ main > img {
 /** PROJECT MACRO **/
 .projects {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
 	gap: 10px;
 	margin: 1.5em 0;
 }
@@ -232,4 +238,18 @@ main > img {
 	height: 2.2em;
 	margin-bottom: 1em;
 	margin-left: 7em;
+}
+
+/** MARKDOWN **/
+
+.md > p {
+	margin-top: 1.25em;
+	margin-bottom: 2em;
+	letter-spacing: 0.01rem;
+	line-height: 2rem;
+}
+
+.md > img {
+	margin-top: 1.25em;
+	margin-bottom: 2em;
 }
