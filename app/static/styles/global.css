@@ -86,7 +86,7 @@ main > img {
 }
 
 .header-socials > a > img {
-	width: 1.5em;
+	width: 1.35em;
 	height: auto;
 	margin-bottom: 2em;
 }
@@ -136,4 +136,55 @@ main > img {
 
 .footer-return:hover {
 	text-decoration: underline;
+}
+
+/** PROJECT MACRO **/
+.projects {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	margin: 1.5em 0;
+}
+
+.project {
+	background-color: #d9d9d9;
+	color: inherit;
+	padding: 0.75em;
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.5em;
+	text-decoration: none;
+	transition: all 150ms linear 0s;
+}
+
+.project:hover {
+	filter: brightness(85%);
+}
+.project-name {
+	font-weight: 600;
+}
+
+.project > p {
+	font-size: 0.88em;
+	margin: 0.5em 0;
+}
+
+.project-about {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.project-dot {
+	height: 10px;
+	width: 10px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.project-lang {
+	font-family: monospace;
+	margin-left: 0.5em;
+	font-size: 0.9em;
 }

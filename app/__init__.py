@@ -3,6 +3,7 @@ This is the flask app
 """
 from flask import Flask, render_template
 from dotenv import load_dotenv
+import requests
 
 load_dotenv()
 
@@ -50,6 +51,9 @@ def index():
     """
     This renders the homepage
     """
+    projects = requests.get("https://ghapi.dstn.to/aelxxs/pinned").json()
+    user["projects"] = projects["data"]
+
     return render_template("/pages/home.html", user=user)
 
 
