@@ -3,7 +3,7 @@
 {% extends "./layout/base.html" %}
 <!-- : -->
 {% block body %}
-<h3>About Me:</h3>
+<h3 id="about me">About Me:</h3>
 <p>
 	Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
 	voluptatum distinctio consequuntur voluptas incidunt repudiandae harum
@@ -16,12 +16,12 @@
 	aliquid illo autem. Praesentium sit cumque obcaecati, facere at modi quod
 	dicta magni.
 </p>
-<h3>Projects:</h3>
+<h3 id="projects">Projects:</h3>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 <div class="projects">
 	{% for data in user.projects %} {{project(data)}} {% endfor %}
 </div>
-<h3>Hobbies:</h3>
+<h3 id="hobbies">Hobbies:</h3>
 <div class="hobby-details">
 	<div>
 		<img class="left-image" src="https://i.umai.pw/OswU-K" alt="book" />
@@ -56,9 +56,10 @@
 		</p>
 	</div>
 </div>
-<h3>Places I've Been:</h3>
+<h3 id="travels">Places I've Been:</h3>
 <br />
 <img src="https://i.umai.pw/ce43Xa.svg" alt="map" />
+<div id="bottom"></div>
 &nbsp;
 <!-- * About    * -->
 <!-- * Projects * -->
