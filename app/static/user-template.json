@@ -2,7 +2,7 @@
 	"github": "aelxxs",
 	"name": "John Doe",
 	"icon": "https://umai.pw/2no_Vq",
-	"about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores, voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid illo autem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores, voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid illo autem.\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores, voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid illo autem.",
+	"about": "Lorem ipsum dolor **sit** amet consectetur adipisicing elit. Corrupti __maiores, voluptatum distinctio consequuntur voluptas incidunt__ repudiandae harum aliquid illo autem.Lorem ipsum dolor sit amet consectetur adipisicing elit.\n\n### Education:\n\n Corrupti maiores, voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid illo autem.\n\n### Work Experiences:\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores, voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid illo autem.",
 	"flags": [
 		{
 			"name": "US",

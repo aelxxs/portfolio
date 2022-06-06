@@ -146,12 +146,24 @@ main {
 	background-color: #d9d9d9;
 	color: inherit;
 	padding: 0.75em;
+	padding-top: 0.65em;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
 	border-radius: 0.5em;
 	text-decoration: none;
 	transition: all 150ms linear 0s;
+}
+
+.project-title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.project-goto {
+	width: 13px;
+	height: auto;
 }
 
 .project:hover {
