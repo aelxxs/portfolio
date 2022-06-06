@@ -1,13 +1,20 @@
-### A Very Cool Project!
+## **A Very Cool Project!**
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
 voluptatum distinctio consequuntur voluptas incidunt repudiandae harum
 aliquid illo autem. Praesentium sit cumque obcaecati, facere at modi quod
 dicta magni.
 
-![](https://i.umai.pw/ucD2MM.png)
+```ts
+const id = uid();
+const doc = await request.text();
 
-### The Goal:
+await env.DOCUMENTS.put(`doc:${id}`, doc, {
+  expirationTtl: THREE_MONTHS,
+});
+```
+
+### **The Goal:**
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
 voluptatum distinctio consequuntur voluptas incidunt repudiandae harum
