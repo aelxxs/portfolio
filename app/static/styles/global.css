@@ -4,6 +4,10 @@
 	font-family: "Poppins", sans-serif;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	padding: 2em;
 }
@@ -17,6 +21,8 @@ main {
 main > p {
 	margin-top: 1.25em;
 	margin-bottom: 2em;
+	letter-spacing: 0.01rem;
+	line-height: 2rem;
 }
 
 main > img {
@@ -141,7 +147,7 @@ main > img {
 /** PROJECT MACRO **/
 .projects {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
 	gap: 10px;
 	margin: 1.5em 0;
 }
@@ -190,46 +196,41 @@ main > img {
 }
 
 /** Hobbies **/
-.hobby-details {
+
+.hobbies {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+	gap: 3em;
+	margin: 2em 0;
+}
+
+.hobby {
 	display: flex;
-	flex-direction: row;
-	margin-top: 2em;
-	margin-bottom: 3em;
+	flex-direction: column;
+	align-items: center;
 }
 
-.left-summary {
-	margin-right: 3em;
-}
-
-.left-image {
+.hobby-icon {
+	margin-bottom: 1.5em;
 	border-radius: 50%;
-	width: 2.2em;
-	height: 2.2em;
-	margin-bottom: 1em;
-	margin-left: 4.5em;
+	width: 2.5em;
+	height: 2.5em;
 }
 
-.middle-summary {
-	margin-left: 1.5em;
-	margin-right: 1.5em;
+.hobby-summary {
+	text-align: center;
 }
 
-.middle-image {
-	border-radius: 50%;
-	width: 2.2em;
-	height: 2.2em;
-	margin-bottom: 1em;
-	margin-left: 6em;
+/** MARKDOWN **/
+
+.md > p {
+	margin-top: 1.25em;
+	margin-bottom: 2em;
+	letter-spacing: 0.01rem;
+	line-height: 2rem;
 }
 
-.right-summary {
-	margin-left: 3em;
-}
-
-.right-image {
-	border-radius: 50%;
-	width: 2.2em;
-	height: 2.2em;
-	margin-bottom: 1em;
-	margin-left: 7em;
+.md > img {
+	margin-top: 1.25em;
+	margin-bottom: 2em;
 }
