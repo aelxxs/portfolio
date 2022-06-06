@@ -1,59 +1,29 @@
 """
 This is the flask app
 """
+import json
 from flask import Flask, render_template
 from dotenv import load_dotenv
 import requests
-import markdown
-import bleach
+from app.utilities import md_to_html
 
 load_dotenv()
 
 app = Flask(__name__)
 
-# ! This is temp.
-user = {
-    "name": "John Doe",
-    "icon": "https://umai.pw/2no_Vq",
-    "github": "https://github.com",
-    "linkedin": "https://linkedin.com",
-    "email": "https://gmail.com",
-    "resume": "https://www.google.com",
-    "flags": [
-        {"name": "US", "icon": "https://i.umai.pw/ZkGRdK.png"},
-        {"name": "ES", "icon": "https://i.umai.pw/a6Jc-N.png"},
-    ],
-    "socials": [
-        {
-            "name": "Email",
-            "icon": "https://i.umai.pw/drb5mM.svg",
-            "link": "mailto:email@email.com",
-        },
-        {
-            "name": "LinkedIn",
-            "icon": "https://i.umai.pw/S8Fs_J.svg",
-            "link": "https://linkedin.com",
-        },
-        {
-            "name": "GitHub",
-            "icon": "https://i.umai.pw/xhdarP.svg",
-            "link": "https://github.com",
-        },
-        {
-            "name": "Resume",
-            "icon": "https://i.umai.pw/jLZRy7.svg",
-            "link": "https://link-to-resume.com",
-        },
-    ],
-}
+with open("./app/static/user-template.json", encoding="utf-8") as file:
+    user = json.load(file)
 
 
 @app.route("/")
 def index():
     """
-    This renders the homepage
+    Renders the homepage.
     """
-    projects = requests.get("https://ghapi.dstn.to/aelxxs/pinned").json()
+
+    # ? I'm using some random persons API for preview reasons.
+    projects = requests.get(f"https://ghapi.dstn.to/{user['github']}/pinned").json()
+    user["about"] = md_to_html(user["about"])
     user["projects"] = projects["data"]
 
     return render_template("/pages/home.html", user=user)
@@ -72,26 +42,7 @@ def project(name):
     with open(file_path, "r", encoding="utf-8") as file:
         text = file.read()
 
-    html = bleach.clean(
-        markdown.markdown(text),
-        tags=[
-            "h1",
-            "h2",
-            "h3",
-            "h4",
-            "h5",
-            "h6",
-            "p",
-            "em",
-            "strong",
-            "ul",
-            "ol",
-            "li",
-            "code",
-            "img",
-        ],
-        attributes={"img": ["src"]},
-    )
+    html = md_to_html(text)
 
     return render_template("/pages/project.html", user=user, content=html)
 
