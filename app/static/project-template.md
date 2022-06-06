@@ -5,7 +5,14 @@ voluptatum distinctio consequuntur voluptas incidunt repudiandae harum
 aliquid illo autem. Praesentium sit cumque obcaecati, facere at modi quod
 dicta magni.
 
-![](https://i.umai.pw/ucD2MM.png)
+```ts
+const id = uid();
+const doc = await request.text();
+
+await env.DOCUMENTS.put(`doc:${id}`, doc, {
+  expirationTtl: THREE_MONTHS,
+});
+```
 
 ### The Goal:
 
