@@ -5,14 +5,15 @@
 {% block body %}
 <h3>About Me:</h3>
 <div class="md">{{user.about|safe}}</div>
-<h3>Projects:</h3>
+<h3  id="projects">Projects:</h3>
 <div class="projects">
 	{% for data in user.projects %} {{project(data)}} {% endfor %}
 </div>
-<h3>Hobbies:</h3>
+<h3 id="hobbies">Hobbies:</h3>
 <div class="hobbies">
 	{% for data in user.hobbies %} {{hobby(data)}} {% endfor %}
 </div>
-<h3>Places I've Been:</h3>
+<h3 id="travels">Places I've Been:</h3>
 <img src="{{user.travels}}" alt="map" />
+<div id="bottom"></div>
 {% endblock %}
