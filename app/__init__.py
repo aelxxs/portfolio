@@ -20,8 +20,6 @@ def index():
     """
     Renders the homepage.
     """
-    with open("./app/static/user-template.json", encoding="utf-8") as file:
-        user = json.load(file)
 
     # ? I'm using some random persons API for preview reasons.
     projects = requests.get(f"https://ghapi.dstn.to/{user['github']}/pinned").json()
