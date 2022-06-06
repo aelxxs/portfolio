@@ -1,4 +1,4 @@
-## **A Very Cool Project!**
+### A Very Cool Project!
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
 voluptatum distinctio consequuntur voluptas incidunt repudiandae harum
@@ -14,7 +14,7 @@ await env.DOCUMENTS.put(`doc:${id}`, doc, {
 });
 ```
 
-### **The Goal:**
+### The Goal:
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
 voluptatum distinctio consequuntur voluptas incidunt repudiandae harum
