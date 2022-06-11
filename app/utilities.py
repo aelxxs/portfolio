@@ -16,7 +16,6 @@ extensions = [
     "pymdownx.tasklist",
     "pymdownx.superfences",
     "pymdownx.saneheaders",
-    "pymdownx.highlight",
 ]
 
 extension_configs = {
@@ -84,6 +83,5 @@ def md_to_html(text: str):
             "span": ["class"],
             "div": ["class"],
             "code": ["class"],
-            "span": ["class"],
         },
     )
