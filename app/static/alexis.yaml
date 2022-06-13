@@ -1,0 +1,56 @@
+github: aelxxs
+name: Alexis Vielma
+icon: https://umai.pw/2no_Vq
+about: |-
+  Lorem ipsum dolor **sit** amet consectetur adipisicing elit. Corrupti __maiores,
+  voluptatum distinctio consequuntur voluptas incidunt__ repudiandae
+  harum aliquid illo autem.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+  ### Education:
+
+  Corrupti maiores, voluptatum distinctio consequuntur voluptas incidunt repudiandae
+  harum aliquid illo autem.
+
+  ### Work Experiences:
+
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
+  voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid illo autem.
+
+flags:
+  - name: US
+    icon: https://i.umai.pw/ZkGRdK.png
+  - name: MX
+    icon: https://i.umai.pw/a6Jc-N.png
+socials:
+  - name: Email
+    icon: https://i.umai.pw/drb5mM.svg
+    link: hey@alexis.kr
+  - name: LinkedIn
+    icon: https://i.umai.pw/S8Fs_J.svg
+    link: https://linkedin.com/in/aelxxs
+  - name: GitHub
+    icon: https://i.umai.pw/xhdarP.svg
+    link: https://github.com/aelxxs
+  - name: Resume
+    icon: https://i.umai.pw/jLZRy7.svg
+    link: https://alexis.kr
+hobbies:
+  - name: Reading
+    icon: https://i.umai.pw/OswU-K
+    summary:
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
+      voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid
+      illo autem.
+  - name: Writing
+    icon: https://i.umai.pw/p1zqp2
+    summary:
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
+      voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid
+      illo autem.
+  - name: Drawing
+    icon: https://i.umai.pw/gofOne
+    summary:
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores,
+      voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid
+      illo autem.
+travels: https://i.umai.pw/ce43Xa.svg
