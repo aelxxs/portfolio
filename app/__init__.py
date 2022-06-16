@@ -37,10 +37,10 @@ def project(name):
 
     # ? We would actually look for the project page in a database.
     # ? For now let's serve this template
-    file_path = "./app/static/project-template.md"
+    file_path = f"./app/static/projects/{name}.md"
 
-    with open(file_path, "r", encoding="utf-8") as file:
-        text = file.read()
+    with open(file_path, "r", encoding="utf-8") as project:
+        text = project.read()
 
     html = md_to_html(text)
 
