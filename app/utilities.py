@@ -76,6 +76,7 @@ def md_to_html(text: str):
             "code",
             "img",
             "pre",
+            "blockquote",
         ],
         attributes={
             "img": ["src"],
