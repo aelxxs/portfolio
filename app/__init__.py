@@ -5,7 +5,6 @@ import json
 from flask import Flask, render_template
 from dotenv import load_dotenv
 import requests
-from app.utilities import md_to_html
 
 load_dotenv()
 
@@ -22,29 +21,28 @@ def index():
     """
 
     # ? I'm using some random persons API for preview reasons.
-    projects = requests.get(f"https://ghapi.dstn.to/{user['github']}/pinned").json()
-    user["about"] = md_to_html(user["about"])
-    user["projects"] = projects["data"]
+    repos = requests.get(f"https://ghapi.dstn.to/{user['github']}/pinned").json()
+    user["projects"] = repos["data"]
 
-    return render_template("/pages/home.html", user=user)
+    return render_template("/pages/home.html", user=user, title=user["name"])
 
 
-@app.route("/project/<name>")
-def project(name):
+@app.route("/projects")
+def projects():
     """
-    Renders a project page if available.
+    Renders the projects page.
     """
 
-    # ? We would actually look for the project page in a database.
-    # ? For now let's serve this template
-    file_path = "./app/static/project-template.md"
+    return render_template("/pages/projects.html", user=user, title="Projects")
 
-    with open(file_path, "r", encoding="utf-8") as file:
-        text = file.read()
 
-    html = md_to_html(text)
+@app.route("/thoughts")
+def thoughts():
+    """
+    Renders the thoughts page.
+    """
 
-    return render_template("/pages/project.html", user=user, content=html)
+    return render_template("/pages/thoughts.html", user=user, title="Thoughts")
 
 
 @app.errorhandler(404)
@@ -52,4 +50,4 @@ def page_not_found(_e):
     """
     Renders a 404 page whenever a user visits an unknown route.
     """
-    return render_template("/pages/404.html"), 404
+    return render_template("/pages/404.html", title="404"), 404

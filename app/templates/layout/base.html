@@ -3,9 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" integrity="sha512-zb2pp+R+czM7GAemdSUQt6jFmr3qCo6ikvBgVU6F5GvwEDR0C2sefFiPEJ9QUpmAKdD5EqDUdNRtbOYnbF/eyQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<!-- TODO: Add more meta tags & head macro (?) -->
-		<title>{{ user.name }}</title>
+		<title>{{ title }}</title>
 		<link
 			rel="stylesheet"
 			href="{{url_for('static', filename='/styles/resets.css')}}"
@@ -14,10 +12,17 @@
 			rel="stylesheet"
 			href="{{url_for('static', filename='/styles/global.css')}}"
 		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/styles/markdown.css')}}"
+		/>
 	</head>
-	<body id="app">
+	<body>
+		<div class="topbar"></div>
 		{% include "./blocks/header.html" %}
-		<main>{% block body %} {% endblock %}</main>
+		<main>
+			{% block body %}{% endblock %}
+		</main>
 		{% include "./blocks/footer.html" %}
 	</body>
 </html>

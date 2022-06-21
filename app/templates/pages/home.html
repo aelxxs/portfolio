@@ -1,19 +1,111 @@
-{% from "./blocks/project.html" import project with context %}
-{% from "./blocks/hobby.html" import hobby with context %}
 {% extends "./layout/base.html" %}
 <!-- : -->
 {% block body %}
-<h3>About Me:</h3>
-<div class="md">{{user.about|safe}}</div>
-<h3  id="projects">Projects:</h3>
-<div class="projects">
-	{% for data in user.projects %} {{project(data)}} {% endfor %}
-</div>
-<h3 id="hobbies">Hobbies:</h3>
-<div class="hobbies">
-	{% for data in user.hobbies %} {{hobby(data)}} {% endfor %}
-</div>
-<h3 id="travels">Places I've Been:</h3>
-<img src="{{user.travels}}" alt="map" />
-<div id="bottom"></div>
+	<div class="hero">
+		<h1>Alexis Vielma;</h1>
+		<p>KU '25 – B.Sc. CS • Hobby Developer, Music Junkie.</p>
+		<div class="battery"></div>
+		<div class="social">
+			<a href="mailto:contact@alexis.kr">
+				<img class="social-icon" src="./static/icons/email.svg" alt="">
+			</a>
+			<a href="/linkedin">
+				<img class="social-icon" src="./static/icons/linkedin.svg" alt="">
+			</a>
+			<a href="/github">
+				<img class="social-icon" src="./static/icons/github.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<section>
+		<h3>Abstract:</h3>
+		<div class="md">
+			<p>I am an aspiring Software/Production Engineer who enjoys tackling technical challenges: be it <strong>code optimization</strong>, service management, or being able to interact with people outside of the industry. I have <strong>ever-growing technical skills</strong> and an <strong>on-going academic background</strong> in <abbr title="">Computer Science</abbr>, <abbr title="">Linguistics</abbr>, and <abbr title="">Korean</abbr>.</p>
+			<p>My passion lies in being able to create fun and easy-to-use software that has the potential of reaching and helping many people. With a focus on ease-of-use comes strong emphasis on <strong>UI/UX</strong>, <strong>HCI</strong>, and <strong>Continuous Development</strong>.</p>
+			<p>I'm <strong>graduating in May 2025</strong> – Interested in Internship and Fellowship opportunities to further guide me in my career.</p>
+		</div>
+	</section>
+	<section>
+		<div class="presence"></div>
+	</section>
+	<hr class="divider">
+	<section>
+		<h3 id="projects">Featured Projects:</h3>
+		<p class="about-projects">A collection of some side projects that I've worked on.</p>
+		<div class="projects">
+			{% for data in user.projects %}
+				<a class="project" href="{{data.url}}" target="_blank">
+					<div class="project-title">
+						<h4 class="project-name">{{data.name}}</h4>
+						<img class="project-click" src="./static/icons/click.svg" alt="">
+					</div>
+					<p>{{data.description}}</p>
+					<div class="project-about">
+						<span
+							class="project-dot"
+							style="--lang-color: {{data.primaryLanguage.color}}"
+						></span>
+						<span class="project-lang">{{data.primaryLanguage.name}}</span>
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+	</section>
+	<span></span>
+	<script src="{{ url_for('static', filename='js/lanyard.js')}}"></script>
+	<script type="module">
+		import { render } from 'https://cdn.skypack.dev/million';
+		import { html } from 'https://cdn.skypack.dev/million/html';
+
+
+		export function msToTime(ms) {
+			let seconds = (ms / 1000).toFixed(1);
+			let minutes = (ms / (1000 * 60)).toFixed(1);
+			let hours = (ms / (1000 * 60 * 60)).toFixed(1);
+			let days = (ms / (1000 * 60 * 60 * 24)).toFixed(1);
+			if (~~seconds < 60) return seconds + " Sec";
+			else if (~~minutes < 60) return minutes + " Min";
+			else if (~~hours < 24) return hours + " Hrs";
+			else return days + " Days";
+		}
+
+		lanyard({
+            userId: "406665840088317962",
+            socket: true,
+            onPresenceUpdate: ({ activities, kv }) => {
+				const presence = document.querySelector('.presence');
+				const battery = document.querySelector('.battery');
+
+				const vscode = activities.find(
+					(activity) => activity.application_id == "810516608442695700"
+				);
+
+				if (vscode) {
+					const image = vscode.assets.large_image.startsWith("mp:external")
+						? vscode.assets.large_image.replace(/mp:external\/([^\/]*)\/(http[s])/g, "$2:/")
+						: `https://cdn.discordapp.com/app-assets/${vscode.application_id}/${vscode.assets.large_image}.webp`;
+
+					const timestamp = new Date().getTime() - vscode.timestamps.start;
+
+					render(presence, html`
+						<div class="vscode">
+							<img class="vscode-icon" src="${image}"></img>
+							<div class="vscode-info">
+								<h4>${vscode.name}</h4>
+								<span>${vscode.details}</span>
+								<span>${vscode.state}</span>
+								<span>Time: ${msToTime(timestamp)}</span>
+							</div>
+						</div>
+					`);
+				}
+
+				const status = JSON.parse(kv.battery)
+
+				render(battery, html`
+					<p>Laptop Status: 💻 » ${status.isCharging ? '⚡' : '🔋'} ${status.percentage}%</p>
+				`)
+			}
+        })
+	</script>
 {% endblock %}
