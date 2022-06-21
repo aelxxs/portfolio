@@ -1,37 +1,37 @@
 {
 	"github": "aelxxs",
-	"name": "John Doe",
+	"name": "Alexis Vielma",
 	"icon": "https://umai.pw/2no_Vq",
-	"about": "Lorem ipsum dolor **sit** amet consectetur adipisicing elit. Corrupti __maiores, voluptatum distinctio consequuntur voluptas incidunt__ repudiandae harum aliquid illo autem.Lorem ipsum dolor sit amet consectetur adipisicing elit.\n\n### Education:\n\n Corrupti maiores, voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid illo autem.\n\n### Work Experiences:\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maiores, voluptatum distinctio consequuntur voluptas incidunt repudiandae harum aliquid illo autem.",
+	"about": "Lorem ipsum dolor **sit** amet consectetur adipisicing elit. Corrupti __maiores, voluptatum distinctio consequuntur voluptas incidunt__ repudiandae harum aliquid illo autem.Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 	"flags": [
 		{
 			"name": "US",
-			"icon": "https://i.umai.pw/ZkGRdK.png"
+			"icon": "https://i.umai.pw/E7GMJJ.png"
 		},
 		{
-			"name": "ES",
-			"icon": "https://i.umai.pw/a6Jc-N.png"
+			"name": "MX",
+			"icon": "https://i.umai.pw/Rjji4M.png"
 		}
 	],
 	"socials": [
 		{
 			"name": "Email",
-			"icon": "https://i.umai.pw/drb5mM.svg",
+			"icon": "https://i.umai.pw/TjVqRr.svg",
 			"link": "mailto:email@email.com"
 		},
 		{
 			"name": "LinkedIn",
-			"icon": "https://i.umai.pw/S8Fs_J.svg",
+			"icon": "https://i.umai.pw/SwByYU.svg",
 			"link": "https://linkedin.com"
 		},
 		{
 			"name": "GitHub",
-			"icon": "https://i.umai.pw/xhdarP.svg",
+			"icon": "https://i.umai.pw/orqoO-.svg",
 			"link": "https://github.com"
 		},
 		{
 			"name": "Resume",
-			"icon": "https://i.umai.pw/jLZRy7.svg",
+			"icon": "https://i.umai.pw/2lI5Zl.svg",
 			"link": "https://link-to-resume.com"
 		}
 	],
