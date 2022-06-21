@@ -1,9 +1,6 @@
-<footer class="footer">
-	<div class="footer-line"></div>
-	<nav class="footer-nav">
-		{% for social in user.socials %}
-		<a class="nav-link" href="{{social.link}}">{{social.name}}</a>
-		{% endfor %}
-	</nav>
-	<a class="footer-return" href="#top">Back to Top</a>
+<footer >
+    <p>Made with 💖 by <abbr title="[MIT] Open Source @ GitHub">Alexis Vielma</abbr></p>
+    {% if  request.endpoint != "index" %}
+        <a href="{{ url_for('index') }}">← go home</a>
+    {% endif %}
 </footer>

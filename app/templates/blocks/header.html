@@ -1,31 +1,14 @@
+{% from "./blocks/macros/navlink.html" import NavLink with context %}
+
 <header class="header">
-	<div class="header-socials">
-		{% for social in user.socials %}
-		<a href="{{social.link}}" title="{{social.name}}" target="_blank">
-			<img src="{{social.icon}}" alt="{{social.name}}" />
-		</a>
-		{% endfor %}
-	</div>
-	<img class="header-img" src="{{user.icon}}" alt="" />
-	<h1 class="header-title">{{user.name}}</h1>
-	{% if request.endpoint == 'index' %}
+	<img class="header-logo" src="./static/logo.svg" alt="">
 	<nav class="header-nav">
-		<a class="nav-link" href="#projects">Projects</a>
-		<span>•</span>
-		<a class="nav-link" href="#hobbies">Hobbies</a>
-		<span>•</span>
-		<a class="nav-link" href="#travels">Travels</a>
-		<span>•</span>
-		<a class="nav-link" href="#bottom">Contact</a>
+		{{ NavLink('index',    "Home"    ) }}
+		{{ NavLink('projects', "Projects") }}
+		{{ NavLink('thoughts', "Thoughts") }}
+		<div class="locale-container">
+			<img class="locale" src="./static/locales/en-US.png">
+			<img class="toggle" src="./static/icons/drop-down.svg">
+		</div>
 	</nav>
-	{% else %}
-	<nav class="header-nav">
-		<a class="nav-link" href="/">Home</a>
-	</nav>
-	{% endif %}
-	<div class="header-flags">
-		{% for flag in user.flags %}
-		<img src="{{flag.icon}}" alt="Flag of {{flag.name}}" />
-		{% endfor %}
-	</div>
 </header>
