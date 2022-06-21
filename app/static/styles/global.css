@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap");
 
+/* ! THIS IS A MESS ! :( */
+
 :root {
 	color-scheme: light;
 	--bg-primary: hsl(0, 0%, 100%);
@@ -27,7 +29,7 @@
 	height: auto;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 480px) {
 	.header {
 		justify-content: center;
 	}
@@ -36,6 +38,7 @@
 		display: none;
 	}
 }
+
 .header-nav {
 	display: flex;
 	gap: 1.25em;
@@ -110,6 +113,14 @@ footer > a {
 footer > a:hover {
 	opacity: 90%;
 }
+
+@media screen and (max-width: 480px) {
+	footer {
+		flex-direction: column;
+		gap: 1.5em;
+	}
+}
+
 /** ---------------------------- **/
 
 html {
