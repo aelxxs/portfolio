@@ -165,7 +165,7 @@ a {
 
 .divider {
 	height: 6px;
-	background-image: url(../icons/divider.svg);
+	background-image: url(../img/icons/divider.svg);
 	background-repeat: repeat-x;
 	background-position: left center;
 	border: none;
