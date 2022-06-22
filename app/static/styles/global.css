@@ -132,7 +132,7 @@ body {
 	background-color: var(--bg-primary);
 	max-width: 59em;
 	margin: 0 auto;
-	background-image: url(../images/background.jpg);
+	background-image: url(../img/background.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
