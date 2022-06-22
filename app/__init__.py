@@ -1,17 +1,13 @@
 """
 This is the flask app
 """
-import json
 from flask import Flask, render_template
 from dotenv import load_dotenv
-import requests
+from requests import get
 
 load_dotenv()
 
 app = Flask(__name__)
-
-with open("./app/static/user-template.json", encoding="utf-8") as file:
-    user = json.load(file)
 
 
 @app.route("/")
@@ -21,10 +17,9 @@ def index():
     """
 
     # ? I'm using some random persons API for preview reasons.
-    repos = requests.get(f"https://ghapi.dstn.to/{user['github']}/pinned").json()
-    user["projects"] = repos["data"]
+    repos = get("https://ghapi.dstn.to/aelxxs/pinned").json()["data"]
 
-    return render_template("/pages/home.html", user=user, title=user["name"])
+    return render_template("/pages/home.html", title="Alexis Vielma", repos=repos)
 
 
 @app.route("/projects")
@@ -33,7 +28,7 @@ def projects():
     Renders the projects page.
     """
 
-    return render_template("/pages/projects.html", user=user, title="Projects")
+    return render_template("/pages/projects.html", title="Projects")
 
 
 @app.route("/thoughts")
@@ -42,7 +37,7 @@ def thoughts():
     Renders the thoughts page.
     """
 
-    return render_template("/pages/thoughts.html", user=user, title="Thoughts")
+    return render_template("/pages/thoughts.html", title="Thoughts")
 
 
 @app.errorhandler(404)
