@@ -1,14 +1,14 @@
 {% from "./blocks/macros/navlink.html" import NavLink with context %}
 
 <header class="header">
-	<img class="header-logo" src="./static/logo.svg" alt="">
+	<img class="header-logo" src="./static/img/logo.svg" alt="">
 	<nav class="header-nav">
 		{{ NavLink('index',    "Home"    ) }}
 		{{ NavLink('projects', "Projects") }}
 		{{ NavLink('thoughts', "Thoughts") }}
 		<div class="locale-container">
-			<img class="locale" src="./static/locales/en-US.png">
-			<img class="toggle" src="./static/icons/drop-down.svg">
+			<img class="locale" src="./static/img/flags/en-US.png">
+			<img class="toggle" src="./static/img/icons/drop-down.svg">
 		</div>
 	</nav>
 </header>
