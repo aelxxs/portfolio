@@ -19,8 +19,6 @@ services:
     restart: unless-stopped
     env_file:
       - ../.env
-    environment:
-      - CERTBOT_EMAIL=$CERTBOT_EMAIL
     ports:
       - 80:80
       - 443:443
