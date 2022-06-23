@@ -1,4 +1,4 @@
 #!/bin/bash
 
 git fetch && git reset origin/main --hard
-docker-compose down && docker-compose up -d --build
+docker compose down && docker compose up -d --build
