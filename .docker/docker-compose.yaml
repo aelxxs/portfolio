@@ -1,0 +1,28 @@
+version: "3.1"
+
+services:
+  web:
+    build:
+      context: ../
+    container_name: web
+    depends_on:
+      - db
+    env_file:
+      - ../.env
+    ports:
+      - 80:5000
+    restart: always
+
+  db:
+    container_name: db
+    image: mysql
+    env_file:
+      - ../.env
+    ports:
+      - 3306:3306
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
