@@ -61,9 +61,7 @@ def projects():
     Renders the projects page.
     """
 
-    timeline = TimelinePost.select().order_by(TimelinePost.created_at.desc())
-
-    return render_template("/pages/projects.html", title="Projects", timeline=timeline)
+    return render_template("/pages/projects.html", title="Projects")
 
 
 @app.route("/thoughts")
@@ -73,6 +71,17 @@ def thoughts():
     """
 
     return render_template("/pages/thoughts.html", title="Thoughts")
+
+
+@app.route("/timeline")
+def timeline():
+    """
+    Renders the timeline page.
+    """
+
+    posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+
+    return render_template("/pages/timeline.html", title="Timeline", timeline=posts)
 
 
 @app.errorhandler(404)

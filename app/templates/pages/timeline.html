@@ -1,0 +1,85 @@
+{% extends "./layout/base.html" %}
+
+{% block body %}
+    <h3>Create a post:</h3>
+    <div class="form">
+        <form id="timeline_form" onsubmit="postFormData(event)">
+            <label for="name" >Name</label>
+            <input type="text" name="name" id="name" data-form-type="other">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" data-form-type="other">
+            <label for="email">Content</label>
+            <textarea type="text" name="content" id="content"></textarea>
+            <button type="submit" value="Post">Submit</button>
+        </form>
+    </div>
+    <h3>Posts:</h3>
+    <div class="timeline">
+        {% for post in timeline %}
+            <div class="post">
+                <p>Date: {{ post.created_at }}</p>
+                <p>Name: {{ post.name }}</p>
+                <p>Email: {{ post.email }}</p>
+                <p>Content: {{ post.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        async function postFormData(e) {
+            e.preventDefault();
+
+            const form = document.getElementById('timeline_form');
+            const formData = new FormData(form);
+
+            try {
+                await fetch('/api/timeline_post', {
+                    method: 'POST',
+                    body: formData
+                })
+
+            } catch (err) {
+                console.log('An error occured');
+            } finally {
+                location.reload()
+            }
+        }
+    </script>
+
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        input, textarea, button {
+            background-color: #ffffff;
+            padding: 0.5em;
+            border-radius: 0.5em;
+            border: none;
+            outline: none;
+            border: 1px solid #a5a5a5;
+        }
+
+        button {
+            font-weight: 700;
+            cursor: pointer;
+            background-color: #ffffff;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timeline > div {
+            background-color: #ffffff;
+            padding: 0.5em;
+            border-radius: 0.5em;
+            border: none;
+            outline: none;
+            border: 1px solid #a5a5a5;
+        }
+    </style>
+{% endblock %}
