@@ -122,3 +122,16 @@ def add_timeline():
     post = TimelinePost.create(name=name, email=email, content=content)
 
     return model_to_dict(post)
+
+
+@app.route("/api/timeline_post", methods=["DELETE"])
+def del_timeline():
+    """
+    Delete a post from the timeline.
+    """
+
+    post_id = request.form["id"]
+
+    TimelinePost.delete_by_id(post_id)
+
+    return "deleted post"
