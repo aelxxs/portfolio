@@ -1,62 +1,71 @@
 {% extends "./layout/base.html" %}
 <!-- : -->
-{% block body %}
-	<div class="hero">
-		<h1>Alexis Vielma;</h1>
-		<p>KU '25 – B.Sc. CS • Hobby Developer, Music Junkie.</p>
-		<div class="battery"></div>
-		<div class="social">
-			<a href="mailto:contact@alexis.kr">
-				<img class="social-icon" src="./static/img/icons/email.svg" alt="">
-			</a>
-			<a href="https://linkedin.com/in/aelxxs">
-				<img class="social-icon" src="./static/img/icons/linkedin.svg" alt="">
-			</a>
-			<a href="https://github.com/aelxxs">
-				<img class="social-icon" src="./static/img/icons/github.svg" alt="">
-			</a>
-		</div>
+{% block details %}
+	<p>KU '25 – B.Sc. CS • Hobby Developer, Music Junkie.</p>
+	<div class="battery"></div>
+	<div class="social--flex">
+		<a href="mailto:contact@alexis.kr">
+			<svg class="social__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+				<path  d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/>
+			</svg>
+		</a>
+		<a href="https://linkedin.com/in/aelxxs">
+			<svg class="social__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+				<path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+			</svg>
+		</a>
+		<a href="https://github.com/aelxxs">
+			<svg class="social__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+				<path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/>
+			</svg>
+		</a>
 	</div>
+{% endblock %}
+{% block body %}
 	<section>
 		<h3>Abstract:</h3>
-		<div class="md">
-			<p>I am an aspiring Software/Production Engineer who enjoys tackling technical challenges: be it <strong>code optimization</strong>, service management, or being able to interact with people outside of the industry. I have <strong>ever-growing technical skills</strong> and an <strong>on-going academic background</strong> in <abbr title="">Computer Science</abbr>, <abbr title="">Linguistics</abbr>, and <abbr title="">Korean</abbr>.</p>
-			<p>My passion lies in being able to create fun and easy-to-use software that has the potential of reaching and helping many people. With a focus on ease-of-use comes strong emphasis on <strong>UI/UX</strong>, <strong>HCI</strong>, and <strong>Continuous Development</strong>.</p>
-			<p>I'm <strong>graduating in May 2025</strong> – Interested in Internship and Fellowship opportunities to further guide me in my career.</p>
-		</div>
+		<p>I am an aspiring Software/Production Engineer who enjoys tackling technical challenges: be it <strong>code optimization</strong>, service management, or being able to interact with people outside of the industry. I have <strong>ever-growing technical skills</strong> and an <strong>on-going academic background</strong> in <abbr title="">Computer Science</abbr>, <abbr title="">Linguistics</abbr>, and <abbr title="">Korean</abbr>.</p>
+		<p>My passion lies in being able to create fun and easy-to-use software that has the potential of reaching and helping many people. With a focus on ease-of-use comes strong emphasis on <strong>UI/UX</strong>, <strong>HCI</strong>, and <strong>Continuous Development</strong>.</p>
+		<p>I'm <strong>graduating in May 2025</strong> – Interested in Internship and Fellowship opportunities to further guide me in my career.</p>
 	</section>
 	<section>
 		<div class="presence"></div>
 	</section>
-	<hr class="divider">
+	<section>
+		<div class="divider"></div>
+	</section>
 	<section>
 		<h3 id="projects">Featured Projects:</h3>
 		<p class="about-projects">A collection of some side projects that I've worked on.</p>
 		<div class="projects">
 			{% for repo in repos %}
-				<a class="project" href="{{repo.url}}" target="_blank">
-					<div class="project-title">
-						<h4 class="project-name">{{repo.name}}</h4>
-						<img class="project-click" src="./static/img/icons/click.svg" alt="">
-					</div>
-					<p>{{repo.description}}</p>
-					<div class="project-about">
-						<span
-							class="project-dot"
-							style="--lang-color: {{repo.primaryLanguage.color}}"
-						></span>
-						<span class="project-lang">{{repo.primaryLanguage.name}}</span>
+				<a class="project-card" href="{{repo.url}}" target="_blank">
+					<div class="card__body">
+						<div class="card__header">
+							<h4 class="project-name">{{repo.name}}</h4>
+							<svg class="project__click" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+								<path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+							</svg>
+						</div>
+						<div class="card__text">
+							<span>{{repo.description}}</span>
+						</div>
+						<div class="card__footer">
+							<div class="project__lang">
+								<span class="project__dot" style="--lang-color: {{repo.primaryLanguage.color}}"></span>
+								<span>{{repo.primaryLanguage.name}}</span>
+							</div>
+						</div>
 					</div>
 				</a>
 			{% endfor %}
 		</div>
 	</section>
-	<span></span>
+
 	<script src="{{ url_for('static', filename='js/lanyard.js')}}"></script>
 	<script type="module">
 		import { render } from 'https://cdn.skypack.dev/million';
 		import { html } from 'https://cdn.skypack.dev/million/html';
-
 
 		export function msToTime(ms) {
 			let seconds = (ms / 1000).toFixed(1);
@@ -88,13 +97,17 @@
 					const timestamp = new Date().getTime() - vscode.timestamps.start;
 
 					render(presence, html`
-						<div class="vscode">
-							<img class="vscode-icon" src="${image}"></img>
-							<div class="vscode-info">
-								<h4>${vscode.name}</h4>
-								<span>${vscode.details}</span>
-								<span>${vscode.state}</span>
-								<span>Time: ${msToTime(timestamp)}</span>
+						<div class="presence-card">
+							<img class="card__icon" src="${image}"></img>
+							<div class="card__body">
+								<div class="card__header">
+									<h4>${vscode.name}</h4>
+								</div>
+								<div class="card__text">
+									<span>${vscode.details}</span>
+									<span>${vscode.state}</span>
+									<span>Time: ${msToTime(timestamp)}</span>
+								</div>
 							</div>
 						</div>
 					`);
