@@ -1,14 +1,37 @@
 {% from "./blocks/macros/navlink.html" import NavLink with context %}
 
-<header class="header">
-	<img class="header-logo" src="./static/img/icons/logo.svg" alt="">
-	<nav class="header-nav">
+<header class="header--flex">
+	<img class="header__logo" src="./static/img/icons/logo.svg" alt="">
+	<nav class="header__menu--flex">
 		{{ NavLink('index',    "Home"    ) }}
 		{{ NavLink('projects', "Projects") }}
 		{{ NavLink('thoughts', "Thoughts") }}
-		<div class="locale-container">
-			<img class="locale" src="./static/img/flags/en-US.png">
-			<img class="toggle" src="./static/img/icons/drop-down.svg">
+		<div class="locale--flex">
+			<img class="locale__flag" src="./static/img/flags/en-US.png">
+			<img class="locale__icon" src="./static/img/icons/drop-down.svg">
 		</div>
 	</nav>
 </header>
+
+<script>
+	// const btn = document.querySelector(".toggle");
+	// const root = document.querySelector(":root");
+
+	// const likesDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+	// const isDark = localStorage.getItem("dark");
+
+	// if (isDark == null) {
+	// 	localStorage.setItem("dark", likesDarkScheme.matches);
+	// 	root.toggleAttribute("dark", likesDarkScheme.matches)
+	// } else {
+	// 	root.toggleAttribute("dark", isDark == "true")
+	// }
+
+	// btn.addEventListener("click",  () => {
+	//     root.toggleAttribute("dark")
+	//     localStorage.setItem("dark", root.hasAttribute("dark"));
+
+	//     console.log(localStorage.getItem("dark"));
+	// });
+
+</script>
