@@ -16,11 +16,9 @@
 		color-scheme: dark;
 		--bg-primary: hsl(229, 18%, 12%);
 		--bg-accents: #23272e;
-		--txt-main: hsl(221, 13%, 71%);
+		--txt-main: hsl(221, 13%, 80%);
 		--txt-bold: hsl(0, 0%, 100%);
 		--clr-100: hsl(233, 20%, 25%);
-		--clr-200: var(--bg-accents);
-		--clr-300: var(--bg-accents);
 	}
 }
 
@@ -320,6 +318,7 @@ body::before {
 }
 
 .footer__link {
+	color: var(--txt-main);
 	text-decoration: underline;
 }
 
@@ -328,7 +327,7 @@ body::before {
 }
 
 @media screen and (max-width: 480px) {
-	.footer {
+	.footer--flex {
 		flex-direction: column;
 		gap: 1.5em;
 	}
