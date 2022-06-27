@@ -29,7 +29,7 @@
 		<p>I'm <strong>graduating in May 2025</strong> – Interested in Internship and Fellowship opportunities to further guide me in my career.</p>
 	</section>
 	<section>
-		<div class="presence"></div>
+		<div class="discord"></div>
 	</section>
 	<section>
 		<div class="divider"></div>
@@ -61,64 +61,6 @@
 			{% endfor %}
 		</div>
 	</section>
-
-	<script src="{{ url_for('static', filename='js/lanyard.js')}}"></script>
-	<script type="module">
-		import { render } from 'https://cdn.skypack.dev/million';
-		import { html } from 'https://cdn.skypack.dev/million/html';
-
-		export function msToTime(ms) {
-			let seconds = (ms / 1000).toFixed(1);
-			let minutes = (ms / (1000 * 60)).toFixed(1);
-			let hours = (ms / (1000 * 60 * 60)).toFixed(1);
-			let days = (ms / (1000 * 60 * 60 * 24)).toFixed(1);
-			if (~~seconds < 60) return seconds + " Sec";
-			else if (~~minutes < 60) return minutes + " Min";
-			else if (~~hours < 24) return hours + " Hrs";
-			else return days + " Days";
-		}
-
-		lanyard({
-            userId: "406665840088317962",
-            socket: true,
-            onPresenceUpdate: ({ activities, kv }) => {
-				const presence = document.querySelector('.presence');
-				const battery = document.querySelector('.battery');
-
-				const vscode = activities.find(
-					(activity) => activity.application_id == "810516608442695700"
-				);
-
-				if (vscode) {
-					const image = vscode.assets.large_image.startsWith("mp:external")
-						? vscode.assets.large_image.replace(/mp:external\/([^\/]*)\/(http[s])/g, "$2:/")
-						: `https://cdn.discordapp.com/app-assets/${vscode.application_id}/${vscode.assets.large_image}.webp`;
-
-					const timestamp = new Date().getTime() - vscode.timestamps.start;
-
-					render(presence, html`
-						<div class="presence-card">
-							<img class="card__icon" src="${image}"></img>
-							<div class="card__body">
-								<div class="card__header">
-									<h4>${vscode.name}</h4>
-								</div>
-								<div class="card__text">
-									<span>${vscode.details}</span>
-									<span>${vscode.state}</span>
-									<span>Time: ${msToTime(timestamp)}</span>
-								</div>
-							</div>
-						</div>
-					`);
-				}
-
-				const status = JSON.parse(kv.battery)
-
-				render(battery, html`
-					<p>Laptop Status: 💻 » ${status.isCharging ? '⚡' : '🔋'} ${status.percentage}%</p>
-				`)
-			}
-        })
-	</script>
+	<script src="{{ url_for('static', filename='js/lanyard.js')}}" defer></script>
+	<script type="module" src="{{ url_for('static', filename='js/main.js')}}" defer></script>
 {% endblock %}

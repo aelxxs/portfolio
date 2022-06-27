@@ -10,6 +10,45 @@
 
 		<title>{{ title }}</title>
 
+		<script>
+			const root = document.querySelector(":root");
+			const dark = localStorage.getItem("dark");
+
+			if (dark) {
+				root.toggleAttribute("dark", dark == "true")
+			}
+
+			window.addEventListener("load", () => {
+				const [moon, sun] = document.querySelectorAll(".theme__icon");
+
+				if (dark == "true") {
+					sun.toggleAttribute("hidden");
+				} else {
+					moon.toggleAttribute("hidden");
+				}
+
+				const btn = document.querySelector(".theme__toggle");
+
+				btn.addEventListener("click",  () => {
+					root.toggleAttribute("dark");
+
+					moon.toggleAttribute("hidden");
+					sun.toggleAttribute("hidden");
+
+					localStorage.setItem("dark", root.hasAttribute("dark"));
+				});
+			})
+
+			window
+				.matchMedia('(prefers-color-scheme: dark)')
+				.addEventListener('change', ({ matches: isDark }) => {
+					if (!theme) {
+						localStorage.setItem("dark", isDark);
+						root.toggleAttribute("dark", isDark)
+					}
+				})
+		</script>
+
 		<link
 			rel="stylesheet"
 			href="{{url_for('static', filename='/styles/resets.css')}}"
