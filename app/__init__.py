@@ -40,8 +40,8 @@ class TimelinePost(Model):
         database = db
 
 
-db.connect()
-db.create_tables([TimelinePost])
+# db.connect()
+# db.create_tables([TimelinePost])
 
 
 @app.route("/")

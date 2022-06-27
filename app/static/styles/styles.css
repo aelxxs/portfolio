@@ -1,14 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap");
 
+:root {
+	--clr-500: hsl(183, 93%, 29%);
+	--clr-600: hsl(108, 69%, 73%);
+}
+
 /* Light Color Scheme */
 :root,
 :root:not([dark]) {
 	color-scheme: light;
 	--bg-primary: hsl(0, 0%, 100%);
-	--bg-accents: hsl(0, 0%, 95%);
+	--bg-accents: hsl(0, 0%, 98%);
 	--txt-main: hsl(0, 0%, 35%);
 	--txt-bold: hsl(0, 0%, 25%);
 	--clr-100: hsl(0, 0%, 92%);
+	--clr-highlight: var(--clr-600);
 }
 
 /* Dark Color Scheme */
@@ -16,27 +22,34 @@
 :root[dark] {
 	color-scheme: dark;
 	--bg-primary: hsl(229, 18%, 12%);
-	--bg-accents: #23272e;
+	--bg-accents: hsl(229, 18%, 15%);
 	--txt-main: hsl(221, 13%, 71%);
 	--txt-bold: hsl(0, 0%, 100%);
 	--clr-100: hsl(233, 20%, 25%);
+	--clr-highlight: var(--clr-500);
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		color-scheme: dark;
 		--bg-primary: hsl(229, 18%, 12%);
-		--bg-accents: #23272e;
+		--bg-accents: hsl(229, 18%, 15%);
 		--txt-main: hsl(221, 13%, 80%);
 		--txt-bold: hsl(0, 0%, 100%);
 		--clr-100: hsl(233, 20%, 25%);
+		--clr-highlight: var(--clr-500);
 	}
+}
+
+::selection {
+	background: var(--clr-highlight);
 }
 
 html {
 	font-family: "JetBrains Mono", monospace;
 	background-color: var(--bg-primary);
 	transition: all 0.5s ease;
+	scroll-behavior: smooth;
 }
 
 body::before {
@@ -47,8 +60,8 @@ body::before {
 	height: 5px;
 	background: linear-gradient(
 		to right,
-		hsl(108, 69%, 73%) 50%,
-		hsl(183, 93%, 29%) 75%
+		var(--clr-600) 50%,
+		var(--clr-500) 75%
 	);
 }
 
@@ -103,7 +116,7 @@ body::before {
 	margin: 0 auto;
 	inset: auto 0 -0.5em;
 	width: 1em;
-	background: hsl(108, 69%, 73%);
+	background: var(--clr-600);
 	transition: 0.3s;
 	opacity: 0;
 	border-radius: 1em;
@@ -121,9 +134,9 @@ body::before {
 	cursor: pointer;
 	display: flex;
 	background-color: var(--bg-accents);
-	padding: 0.5em;
+	padding: 0.42em;
 	align-items: center;
-	border: none;
+	border: 1px solid var(--clr-100);
 	border-radius: 50%;
 }
 
@@ -225,11 +238,10 @@ body::before {
 	align-items: center;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 	width: 100%;
-	transition: all 0.25s ease-in-out;
 }
 
 [class*="-card"]:hover {
-	filter: brightness(95%);
+	filter: brightness(98%);
 }
 
 [class*="-card"] * {
@@ -273,7 +285,7 @@ body::before {
 .projects {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
-	gap: 0.5em;
+	gap: 0.75em;
 }
 
 .project__click {
