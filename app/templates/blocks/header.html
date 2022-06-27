@@ -1,7 +1,9 @@
 {% from "./blocks/macros/navlink.html" import NavLink with context %}
 
 <header class="header--flex">
-	<img class="header__logo" src="./static/img/icons/logo.svg" alt="">
+	<a href="/">
+		<img class="header__logo" src="./static/img/icons/logo.svg" alt="">
+	</a>
 	<nav class="header__menu--flex">
 		{{ NavLink('index',    "Home"    ) }}
 		{{ NavLink('projects', "Projects") }}

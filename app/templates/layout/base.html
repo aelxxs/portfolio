@@ -3,10 +3,22 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="title" content="Alexis Vielma">
-		<meta name="description" content="KU '25 — B.Sc. CS">
-		<meta name="author" content="Alexis Vielma">
-		<meta name="robots" content="index, follow">
+		<meta name="title" content="Alexis Vielma" />
+		<meta name="description" content="KU '25 – B.Sc. CS • Hobby Developer, Music Junkie."/>
+		<meta name="author" content="Alexis Vielma" />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#00cc74" />
+		<meta name="keywords" content="portfolio, flask, meta, mlh"/>
+		<meta name="apple-mobile-web-app-title" content="Alexis Vielma" />
+		<meta name="msapplication-TileColor" content="#2b5797" />
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta property="og:url" content="https://alexis.lol" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Alexis Vielma" />
+		<meta property="og:description" content="KU '25 – B.Sc. CS • Hobby Developer, Music Junkie." />
+		<meta property="og:site_name" content="Alexis Vielma" />
+
+		<link rel="icon" href="./static/img/icons/logo.svg" />
 
 		<title>{{ title }}</title>
 
@@ -15,7 +27,7 @@
 			const dark = localStorage.getItem("dark");
 
 			if (dark) {
-				root.toggleAttribute("dark", dark == "true")
+				root.toggleAttribute("dark", dark == "true");
 			}
 
 			window.addEventListener("load", () => {
@@ -29,7 +41,7 @@
 
 				const btn = document.querySelector(".theme__toggle");
 
-				btn.addEventListener("click",  () => {
+				btn.addEventListener("click", () => {
 					root.toggleAttribute("dark");
 
 					moon.toggleAttribute("hidden");
@@ -37,16 +49,16 @@
 
 					localStorage.setItem("dark", root.hasAttribute("dark"));
 				});
-			})
+			});
 
 			window
-				.matchMedia('(prefers-color-scheme: dark)')
-				.addEventListener('change', ({ matches: isDark }) => {
+				.matchMedia("(prefers-color-scheme: dark)")
+				.addEventListener("change", ({ matches: isDark }) => {
 					if (!theme) {
 						localStorage.setItem("dark", isDark);
-						root.toggleAttribute("dark", isDark)
+						root.toggleAttribute("dark", isDark);
 					}
-				})
+				});
 		</script>
 
 		<link
