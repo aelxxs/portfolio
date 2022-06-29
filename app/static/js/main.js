@@ -85,7 +85,7 @@ const renderCurrentSong = async () => {
 	const { song } = await data.json();
 
 	if (song) {
-		const song = html`
+		const content = html`
 			<a href="${song.url}" target="_blank">
 				<div class="song-card">
 					<img class="card__icon" src="${song.cover}" />
@@ -106,7 +106,7 @@ const renderCurrentSong = async () => {
 			</a>
 		`;
 
-		render(lastfm, song);
+		render(lastfm, content);
 	}
 };
 
