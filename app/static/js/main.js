@@ -76,3 +76,41 @@ lanyard({
 		renderBatteryStatus(kv);
 	},
 });
+
+const lastfm = document.querySelector(".lastfm");
+
+const renderCurrentSong = async () => {
+	const data = await fetch("/api/now_playing");
+
+	const { song } = await data.json();
+
+	if (song) {
+		const song = html`
+			<a href="${song.url}" target="_blank">
+				<div class="song-card">
+					<img class="card__icon" src="${song.cover}" />
+					<div class="card__body">
+						<div class="card__header">
+							<span span class="song__name" title="${song.name}">${song.name}</span>
+						</div>
+						<div class="card__footer">
+							<span class="song__artist">${song.artist}</span>
+							<div class="song__now-playing">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		`;
+
+		render(lastfm, song);
+	}
+};
+
+renderCurrentSong();
+setInterval(async () => {
+	await renderCurrentSong();
+}, 5000);

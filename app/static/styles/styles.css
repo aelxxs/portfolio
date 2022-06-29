@@ -203,11 +203,10 @@ body::before {
 .hero__title {
 	font-size: 3rem;
 	font-weight: 800;
-	margin-bottom: 0.7em;
 }
 
 .hero p {
-	margin: 1.5em 0;
+	margin: 1.25em 0;
 }
 
 .social--flex {
@@ -246,7 +245,6 @@ body::before {
 
 [class*="-card"] * {
 	display: flex;
-	flex-direction: column;
 }
 
 .card__icon {
@@ -257,25 +255,25 @@ body::before {
 }
 
 .card__body {
+	flex-direction: column;
 	width: 100%;
 	gap: 0.75em;
 }
 
 .card__text {
+	flex-direction: column;
 	gap: 0.25em;
 	font-size: 0.9em;
 	color: var(--txt-main);
 }
 
 .card__header {
-	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
 
 .card__footer {
 	width: 100%;
-	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
@@ -309,6 +307,101 @@ body::before {
 	border-radius: 50%;
 	display: inline-block;
 	background-color: var(--lang-color);
+}
+
+/** Now Playing **/
+
+.lastfm {
+	display: flex;
+}
+
+.song-card {
+	padding: 0.65em;
+	gap: 0.5em;
+}
+
+.song-card .card__icon {
+	height: 2.5em;
+	margin: 0;
+	border-radius: 0.25em;
+}
+
+.song-card .card__body {
+	gap: 0.35em;
+	justify-content: space-between;
+}
+
+.song {
+	display: flex;
+	gap: 0.5em;
+	padding: 0.65em;
+	background-color: var(--bg-accents);
+	backdrop-filter: blur(10px);
+	border: 1px solid var(--clr-100);
+	border-radius: 0.5em;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.song__name {
+	font-size: 0.95em;
+	font-weight: 600;
+	color: var(--txt-bold);
+}
+
+.song__artist {
+	font-size: 0.85em;
+	color: var(--txt-main);
+}
+
+.song__now-playing {
+	margin-left: 0.5em;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 13px;
+	height: 13px;
+}
+
+.song__now-playing span {
+	width: 0.2em;
+	height: 100%;
+	background-color: var(--clr-500);
+	border-radius: 3px;
+	transform-origin: bottom;
+	animation: bounce 2.2s ease infinite alternate;
+	content: "";
+	bottom: 0;
+}
+
+.song__now-playing span:nth-of-type(2) {
+	background-color: var(--clr-600);
+	animation-delay: -2.2s;
+}
+
+.song__now-playing span:nth-of-type(3) {
+	animation-delay: -3.7s;
+}
+
+@keyframes bounce {
+	10% {
+		transform: scaleY(0.3); /* start by scaling to 30% */
+	}
+
+	30% {
+		transform: scaleY(1); /* scale up to 100% */
+	}
+
+	60% {
+		transform: scaleY(0.5); /* scale down to 50% */
+	}
+
+	80% {
+		transform: scaleY(0.75); /* scale up to 75% */
+	}
+
+	100% {
+		transform: scaleY(0.6); /* scale down to 60% */
+	}
 }
 
 /**  Page Divider **/
