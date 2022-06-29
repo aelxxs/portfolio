@@ -3,7 +3,6 @@ This is the flask app
 """
 import datetime
 from os import getenv
-from sys import api_version
 from dotenv import load_dotenv
 from requests import get
 from peewee import *
@@ -42,8 +41,8 @@ class TimelinePost(Model):
         database = db
 
 
-# db.connect()
-# db.create_tables([TimelinePost])
+db.connect()
+db.create_tables([TimelinePost])
 
 fm = LastFMNetwork(api_key=getenv("LASTFM_API_KEY"), api_secret=getenv("LASTFM_SECRET"))
 
