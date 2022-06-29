@@ -111,7 +111,6 @@ def now_playing():
             "name": track.get_name(),
             "artist": track.get_artist().get_name(),
             "cover": track.get_cover_image(),
-            "duration": track.get_duration(),
         }
 
     return {"song": song}
