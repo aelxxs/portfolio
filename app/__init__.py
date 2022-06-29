@@ -3,11 +3,13 @@ This is the flask app
 """
 import datetime
 from os import getenv
+from sys import api_version
 from dotenv import load_dotenv
 from requests import get
 from peewee import *
 from flask import Flask, render_template, request
 from playhouse.shortcuts import model_to_dict
+from pylast import LastFMNetwork
 
 load_dotenv()
 
@@ -40,8 +42,10 @@ class TimelinePost(Model):
         database = db
 
 
-db.connect()
-db.create_tables([TimelinePost])
+# db.connect()
+# db.create_tables([TimelinePost])
+
+fm = LastFMNetwork(api_key=getenv("LASTFM_API_KEY"), api_secret=getenv("LASTFM_SECRET"))
 
 
 @app.route("/")
@@ -90,6 +94,28 @@ def page_not_found(_e):
     Renders a 404 page whenever a user visits an unknown route.
     """
     return render_template("/pages/404.html", title="404"), 404
+
+
+@app.route("/api/now_playing", methods=["GET"])
+def now_playing():
+    """
+    Returns current song from lastfm.
+    """
+    alexis = fm.get_user("aelxxs")
+    track = alexis.get_now_playing()
+
+    song = None
+
+    if track:
+        song = {
+            "url": track.get_url(),
+            "name": track.get_name(),
+            "artist": track.get_artist().get_name(),
+            "cover": track.get_cover_image(),
+            "duration": track.get_duration(),
+        }
+
+    return {"song": song}
 
 
 #
