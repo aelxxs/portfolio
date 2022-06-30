@@ -32,13 +32,15 @@ const renderDiscordStatus = (vscode) => {
 		return `${timeElapsedArray.map(format).join(":")} elapsed`;
 	};
 
-	const image = vscode.assets.large_image.startsWith("mp:external")
-		? vscode.assets.large_image.replace(/mp:external\/([^\/]*)\/(http[s])/g, "$2:/")
-		: `https://cdn.discordapp.com/app-assets/${vscode.application_id}/${vscode.assets.large_image}.webp`;
+	const imageLarge = vscode.assets.large_image.replace(/mp:external\/([^\/]*)\/(http[s])/g, "$2:/");
+	const imageSmall = vscode.assets.small_image.replace(/mp:external\/([^\/]*)\/(http[s])/g, "$2:/");
 
 	const card = html`
         <div class="presence-card">
-            <img class="card__icon" src="${image}"></img>
+			<div class="discord__assets">
+				<img class="card__icon" title="${vscode.assets.large_text}" src="${imageLarge}"></img>
+				<img class="discord__img--small" title="${vscode.assets.small_text}" src="${imageSmall}"></img>
+			</div>
             <div class="card__body">
                 <div class="card__header">
                     <h4>${vscode.name}</h4>
@@ -47,7 +49,7 @@ const renderDiscordStatus = (vscode) => {
                     <span>${vscode.details}</span>
                     <span>${vscode.state}</span>
                     <div class="counter">
-                        <span>Time: ${getTimeElapsed()}</span>
+                        <span>${getTimeElapsed()}</span>
                     </div>
                 </div>
             </div>
@@ -59,8 +61,8 @@ const renderDiscordStatus = (vscode) => {
 	const counter = document.querySelector(".counter");
 
 	setInterval(() => {
-		render(counter, html`<span>Time: ${getTimeElapsed()}</span>`);
-	}, 10);
+		render(counter, html`<span>${getTimeElapsed()}</span>`);
+	}, 1000);
 };
 
 lanyard({

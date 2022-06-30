@@ -237,6 +237,7 @@ body::before {
 	align-items: center;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 	width: 100%;
+	gap: 1em;
 }
 
 [class*="-card"]:hover {
@@ -248,10 +249,9 @@ body::before {
 }
 
 .card__icon {
-	width: auto;
-	height: 85px;
+	width: 100px;
+	height: auto;
 	border-radius: 0.5em;
-	margin-right: 1em;
 }
 
 .card__body {
@@ -316,12 +316,12 @@ body::before {
 }
 
 .song-card {
-	padding: 0.65em;
+	padding: 0.5em;
 	gap: 0.5em;
 }
 
 .song-card .card__icon {
-	height: 2.5em;
+	width: 2.75em;
 	margin: 0;
 	border-radius: 0.25em;
 }
@@ -402,6 +402,26 @@ body::before {
 	100% {
 		transform: scaleY(0.6); /* scale down to 60% */
 	}
+}
+
+/** Discord Card Custom Styles **/
+
+.presence-card .card__body {
+	gap: 0.5em;
+}
+
+.discord__assets {
+	position: relative;
+}
+
+.discord__img--small {
+	border: 2px solid var(--bg-accents);
+	width: 28px;
+	height: auto;
+	border-radius: 50%;
+	position: absolute;
+	bottom: -6px;
+	right: -6px;
 }
 
 /**  Page Divider **/
