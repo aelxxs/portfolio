@@ -141,10 +141,19 @@ def add_timeline():
     """
     Adds a new post to the timeline.
     """
+    name = request.form.get('name', None)
+    email = request.form.get('email', None)
+    content = request.form.get('content', None)
 
-    name = request.form["name"]
-    email = request.form["email"]
-    content = request.form["content"]
+    if not name or not len(name):
+        return "Invalid name", 400
+
+    if not email or not len(email) or "@" not in email:
+        return "Invalid email", 400
+
+    if not content or not len(content):
+       return "Invalid content", 400
+
 
     post = TimelinePost.create(name=name, email=email, content=content)
 
