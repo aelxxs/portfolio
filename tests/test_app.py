@@ -31,6 +31,12 @@ class AppTestCase(unittest.TestCase):
 
         # TODO add more tests relating to the /api/timeline_post get and post apis
 
+        respo = self.client.post("/api/timeline_post", data={
+            "name": "angel", "email":   "angeldzambrano99@gmail.com", "content": "angel was here!"
+        })
+
+        assert respo.status_code == 200
+
     def test_malformed_timeline_post(self):
         # POST request missing name
         response = self.client.post("/api/timeline_post", data=

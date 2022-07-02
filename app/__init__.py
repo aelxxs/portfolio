@@ -154,7 +154,6 @@ def add_timeline():
     if not content or not len(content):
        return "Invalid content", 400
 
-
     post = TimelinePost.create(name=name, email=email, content=content)
 
     return model_to_dict(post)
