@@ -9,18 +9,22 @@ from peewee import *
 from flask import Flask, render_template, request
 from playhouse.shortcuts import model_to_dict
 from pylast import LastFMNetwork
+import os
 
 load_dotenv()
 
 app = Flask(__name__)
 
+if os.getenv("TESTING") == "true":
+    print("Running in test mode.")
+    db = SqliteDatabase("file:memory?mode=memory&cache=shared", uri=True)
+else:
+    db = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD") ,
+        host=os.getenv("MYSQL_HOST"),
 
-db = MySQLDatabase(
-    getenv("MYSQL_DATABASE"),
-    host=getenv("MYSQL_HOST"),
-    user=getenv("MYSQL_USER"),
-    password=getenv("MYSQL_PASSWORD"),
-)
+    )
 
 
 class TimelinePost(Model):
@@ -37,7 +41,6 @@ class TimelinePost(Model):
         """
         Model metadata
         """
-
         database = db
 
 
@@ -138,10 +141,18 @@ def add_timeline():
     """
     Adds a new post to the timeline.
     """
+    name = request.form.get('name', None)
+    email = request.form.get('email', None)
+    content = request.form.get('content', None)
 
-    name = request.form["name"]
-    email = request.form["email"]
-    content = request.form["content"]
+    if not name or not len(name):
+        return "Invalid name", 400
+
+    if not email or not len(email) or "@" not in email:
+        return "Invalid email", 400
+
+    if not content or not len(content):
+       return "Invalid content", 400
 
     post = TimelinePost.create(name=name, email=email, content=content)
 

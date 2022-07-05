@@ -18,6 +18,8 @@ extensions = [
     "pymdownx.saneheaders",
 ]
 
+
+
 extension_configs = {
     "pymdownx.magiclink": {
         "repo_url_shortener": True,
