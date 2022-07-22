@@ -1,4 +1,4 @@
-name: Lint
+name: Test
 
 on:
   # Trigger the workflow on push or pull request,
@@ -11,10 +11,11 @@ on:
       - main
 
 jobs:
-  run-linters:
-    name: Run linters
+  run-tests:
     runs-on: ubuntu-latest
-
+    name: Run Tests
+    env:
+      TESTING: true
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
@@ -24,10 +25,11 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install Python dependencies
-        run: pip install black
+      - name: Setup Virtual Env
+        run: python -m venv venv
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          black: true
+      - name: Install Deps
+        run: venv/bin/pip install -r requirements.txt
+
+      - name: Run Tests
+        run: chmod +x ./run_test.sh && ./run_test.sh
