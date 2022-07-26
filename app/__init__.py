@@ -19,11 +19,11 @@ if os.getenv("TESTING") == "true":
     print("Running in test mode.")
     db = SqliteDatabase("file:memory?mode=memory&cache=shared", uri=True)
 else:
-    db = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+    db = MySQLDatabase(
+        os.getenv("MYSQL_DATABASE"),
         user=os.getenv("MYSQL_USER"),
-        password=os.getenv("MYSQL_PASSWORD") ,
+        password=os.getenv("MYSQL_PASSWORD"),
         host=os.getenv("MYSQL_HOST"),
-
     )
 
 
@@ -41,6 +41,7 @@ class TimelinePost(Model):
         """
         Model metadata
         """
+
         database = db
 
 
@@ -141,9 +142,9 @@ def add_timeline():
     """
     Adds a new post to the timeline.
     """
-    name = request.form.get('name', None)
-    email = request.form.get('email', None)
-    content = request.form.get('content', None)
+    name = request.form.get("name", None)
+    email = request.form.get("email", None)
+    content = request.form.get("content", None)
 
     if not name or not len(name):
         return "Invalid name", 400
@@ -152,7 +153,7 @@ def add_timeline():
         return "Invalid email", 400
 
     if not content or not len(content):
-       return "Invalid content", 400
+        return "Invalid content", 400
 
     post = TimelinePost.create(name=name, email=email, content=content)
 
