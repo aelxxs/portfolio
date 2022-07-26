@@ -32,4 +32,4 @@ jobs:
         run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && pwd'
 
       - name: Deploy Site
-        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && ./redeploy-site.sh'
+        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && chmod +x ./redeploy-site.sh && ./redeploy-site.sh'
